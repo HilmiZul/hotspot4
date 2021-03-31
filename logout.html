@@ -35,8 +35,13 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-item nav-link text-white" href="#">Home</a>
+              <a class="nav-item nav-link text-white" href="/">Home</a>
               <a class="nav-item nav-link text-white" href="#">Area</a>
+              $(if username)
+              <a class="nav-item nav-link text-white" href="/logout.html">Logout</a>
+              $(else)
+              <a class="nav-item nav-link text-white" href="/login.html">Login</a>
+              $(endif)
             </div>
           </div>
         </nav>

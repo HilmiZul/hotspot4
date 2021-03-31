@@ -38,7 +38,7 @@ body {
 }
 .card .card-content {
   /* border-top: 3px solid #fff; */
-  opacity: .7;
+  opacity: .98;
 }
 
 .btn {
@@ -58,4 +58,8 @@ body {
 .footer {
   border-radius: 10px;
   font-size: 12px;
+}
+
+.gambar-slide {
+  border-radius: 10px;
 }
