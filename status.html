@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hotspot SMKN 4 Tasikmalaya">
+
+  $(if refresh-timeout)
+  <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+  $(endif)
+
+  <title>4NET. Status</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <script language="JavaScript">
+    <!--
+    $(if advert-pending == 'yes')
+        var popup = '';
+        function focusAdvert() {
+      if (window.focus) popup.focus();
+        }
+        function openAdvert() {
+      popup = open('$(link-advert)', 'hotspot_advert', '');
+      setTimeout("focusAdvert()", 1000);
+        }
+    $(endif)
+        function openLogout() {
+      if (window.name != 'hotspot_status') return true;
+            open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+      window.close();
+      return false;
+        }
+    //-->
+    </script>
+</head>
+
+<body 
+$(if advert-pending == 'yes')
+onLoad="openAdvert()"
+$(endif)
+>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-light mb-3">
+          <a class="navbar-brand text-white font-prototype" href="#">4NET.</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link text-white" href="#">Home</a>
+              <a class="nav-item nav-link text-white" href="#">Area</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="col-md-12">
+        <div class="card shadow-lg p-4">
+          <div class="card-content">
+            <div class="col-md-6 offset-md-3">
+              <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+                $(if login-by == 'trial')
+                  <div class="alert alert-danger">Selamat datang di Akun <strong>Percobaan</strong>!</div>
+                $(elif login-by != 'mac')
+                  <div class="alert alert-info">Selamat Datang, <strong>$(username)</strong>!</div>
+                $(endif)
+                <table class="table table-striped">
+                  <tr>
+                    <td>IP Address</td>
+                    <td>:</td>
+                    <td>$(ip)</td>
+                  </tr>
+                  <tr>
+                    <td>Bytes up/down</td>
+                    <td>:</td>
+                    <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
+                  </tr>
+                  $(if session-time-left)
+                  <tr>
+                    <td>Connected / left</td>
+                    <td>:</td>
+                    <td>$(uptime) / $(session-time-left)</td>
+                  </tr>
+                  $(else)
+                  <tr>
+                    <td>Connected</td>
+                    <td>:</td>
+                    <td>$(uptime)</td>
+                  </tr>
+                  $(endif)
+                  <tr>
+                    <td>Refresh</td>
+                    <td>:</td>
+                    <td>$(refresh-timeout)</td>
+                  </tr>
+                  <tr>
+                    <td>Session time</td>
+                    <td>:</td>
+                    <td>$(uptime)</td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-center mt-3 mb-5">
+          <span class="p-2 bg-white footer text-muted">
+            &copy; TKI SMKN 4 Tasikmalaya 
+          </span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

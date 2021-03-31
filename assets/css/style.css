@@ -1,0 +1,61 @@
+/* 
+ * style.css
+ * 30 Maret 2021
+ */
+
+/* PERSIAPAN */
+@font-face {
+  font-family: 'Prototype';
+  src: url('/vendor/fonts/Prototype.ttf')
+}
+
+@font-face {
+  font-family: 'Avenir Medium';
+  src: url('/vendor/fonts/Avenir-Medium.ttf')
+}
+
+body {
+  background: #fff url('/assets/img/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Avenir Medium';
+}
+
+.font-prototype {
+  font-family: 'Prototype';
+}
+
+.navbar {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  /* opacity: .8; */
+  background-color: rgb(73, 150, 244);
+}
+
+.card {
+  border: 0;
+  border-top: 7px solid rgb(73, 150, 244);
+  border-radius: 10px;
+}
+.card .card-content {
+  /* border-top: 3px solid #fff; */
+  opacity: .7;
+}
+
+.btn {
+  box-shadow: 4px 4px rgb(0,0,0, .3);
+  transition: all .1s ease-in-out;
+}
+
+.btn:hover {
+  box-shadow: 1px 1px rgb(0,0,0, .3);
+  transform: scale(.9);
+}
+
+.alert {
+  border: 0;
+}
+
+.footer {
+  border-radius: 10px;
+  font-size: 12px;
+}

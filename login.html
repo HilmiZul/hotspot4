@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hotspot SMKN 4 Tasikmalaya">
+
+  <title>4NET. Login</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+  $(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	
+	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+	<!--
+	  function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+		document.sendin.submit();
+		return false;
+	    }
+	//-->
+	</script>
+  $(endif)
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-light mb-3">
+          <a class="navbar-brand text-white font-prototype" href="#">4NET.</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link text-white" href="#">Home</a>
+              <a class="nav-item nav-link text-white" href="#">Area</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      
+      <div class="col-md-12">
+        <div class="card shadow-lg p-4">
+          <div class="card-content">
+            <div class="col-md-4 offset-md-4">
+              $(if error)
+                <div class="alert alert-danger">$(error)</div>
+              $(endif)
+              <h3 class="font-prototype">Login Hotspot</h3>
+              <form autocomplete="off" name="login" action="$(link-login-only)" method="post"
+                    $(if chap-id) onSubmit="return doLogin()" $(endif)>
+                <input type="hidden" name="dst" value="$(link-orig)" />
+                <input type="hidden" name="popup" value="true" />
+                <div class="form-group">
+                  <input class="form-control" name="username" type="text" placeholder="username" value="$(username)" required/>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" name="password" type="password" placeholder="password" required />
+                </div>
+                <button type="submit" value="OK" class="btn btn-primary">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-center mt-3 mb-5">
+          <span class="p-2 bg-white footer text-muted">
+            &copy; TKI SMKN 4 Tasikmalaya 
+          </span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  
+
+  <script type="text/javascript" src="/md5.js"></script>
+  <script type="text/javascript">
+    <!--
+    document.login.username.focus();
+    
+    var username = document.login.username;
+    var password = document.login.password;
+    var luser = document.getElementById("luser");
+    var lpass = document.getElementById("lpass");
+    var btnmem = document.getElementById("btnmem");
+    var btnvcr = document.getElementById("btnvcr");
+    
+    // set password = username
+    function setpass(){
+      var user = username.value		
+      password.value = user;
+    }
+    username.onchange = setpass;
+    btnmem.style = "background-color:#FDFBFB; width: 90px; cursor:pointer;";
+    btnvcr.style = "background-color:#f1f1f1; width: 90px; cursor:pointer;";  
+    
+    // change to voucher mode
+    function voucher(){
+      username.focus();
+      username.onchange = setpass;
+      password.type = "hidden";
+      luser.innerHTML = "Voucher"; 
+      lpass.innerHTML = "";
+      btnmem.style = "background-color:#FDFBFB; width: 90px; cursor:pointer;";
+      btnvcr.style = "background-color:#f1f1f1; width: 90px; cursor:pointer;";  
+    }
+    
+    // change to member mode
+    function member(){
+      username.focus();
+      username.onchange = "";
+      password.type= "password";
+      luser.innerHTML = "Username"; 
+      lpass.innerHTML = "Password"; 
+      btnmem.style = "background-color:#f1f1f1; width: 90px; cursor:pointer;"; 
+      btnvcr.style = "background-color:#FDFBFB; width: 90px; cursor:pointer;"; 
+    }
+    //-->
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
